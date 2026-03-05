@@ -13,8 +13,7 @@ class Settings:
 
     # Database
     DB_PATH: str = os.getenv(
-        "DB_PATH",
-        os.path.join(os.path.dirname(__file__), "..", "records.db")
+        "DB_PATH", os.path.join(os.path.dirname(__file__), "..", "records.db")
     )
 
     # CORS — tighten allowed_origins in production
@@ -22,7 +21,7 @@ class Settings:
 
     # Validation constants
     VALID_HEALTH: frozenset[str] = frozenset({"athletic", "good", "average", "poor"})
-    VALID_SEX: frozenset[str] = frozenset({"male", "female", "other"})
+    VALID_SEX: frozenset[str] = frozenset({"male", "female", "unknown"})
     MIN_AGE: int = 0
     MAX_AGE: int = 150
 

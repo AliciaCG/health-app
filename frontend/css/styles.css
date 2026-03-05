@@ -11,14 +11,14 @@
 
 /* ── Design tokens ────────────────────────────────────────── */
 :root {
-  --color-bg:           #0e0e0f;
-  --color-surface:      #161618;
-  --color-card:         #1d1d20;
-  --color-border:       #2a2a2e;
+  --color-bg:           #525255;
+  --color-surface:      #808180;
+  --color-card:         #dadae2;
+  --color-border:       #525255;
   --color-accent:       #c8f04a;
   --color-accent-hover: #a8cc32;
-  --color-muted:        #555560;
-  --color-text:         #e8e8ec;
+  --color-muted:        #080808;
+  --color-text:         #0f0f0f;
   --color-text-dim:     #888890;
   --color-error:        #ff5c5c;
 
