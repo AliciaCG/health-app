@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Health Records management application"/>
+  <title>Health Records</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <h1 class="site-title">Health <span>Records</span></h1>
+    <div class="api-status" id="apiStatus" role="status" aria-live="polite">
+      <span class="api-status__dot" aria-hidden="true"></span>
+      <span class="api-status__label">connecting...</span>
+    </div>
+  </header>
+
+  <main class="site-main" role="main">
+
+    <!-- ── Add Record Form ── -->
+    <section class="form-panel" aria-labelledby="formHeading">
+      <h2 class="section-label" id="formHeading">New Record</h2>
+      <div class="form-grid" role="group" aria-label="New record inputs">
+
+        <div class="field">
+          <label for="firstname">First Name</label>
+          <input id="firstname" type="text" placeholder="Jane" autocomplete="off" required/>
+        </div>
+
+        <div class="field">
+          <label for="lastname">Last Name</label>
+          <input id="lastname" type="text" placeholder="Smith" autocomplete="off" required/>
+        </div>
+
+        <div class="field field--narrow">
+          <label for="age">Age</label>
+          <input id="age" type="number" placeholder="30" min="0" max="150" required/>
+        </div>
+
+        <div class="field">
+          <label for="sex">Sex</label>
+          <select id="sex" required>
+            <option value="" disabled selected>Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="health">Health</label>
+          <select id="health" required>
+            <option value="" disabled selected>Select</option>
+            <option value="athletic">Athletic</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+          </select>
+        </div>
+
+        <div class="field field--submit">
+          <span class="field__spacer" aria-hidden="true"></span>
+          <button class="btn btn--primary" id="submitBtn" type="button">
+            + Add Record
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Records Table ── -->
+    <section class="table-panel" aria-labelledby="tableHeading">
+      <div class="table-header">
+        <h2 class="section-label" id="tableHeading">All Records</h2>
+        <span class="record-count" id="recordCount" aria-live="polite" aria-atomic="true">0</span>
+      </div>
+
+      <div class="table-wrap" role="region" aria-label="Records table" tabindex="0">
+        <table aria-labelledby="tableHeading">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Sex</th>
+              <th scope="col">Health</th>
+              <th scope="col">Added</th>
+              <th scope="col"><span class="sr-only">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody">
+            <tr class="row--loading">
+              <td colspan="7">loading records...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast notification -->
+  <div id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
